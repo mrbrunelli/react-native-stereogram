@@ -14,9 +14,10 @@ const Home = (): React.ReactElement => {
   const navigation = useNavigation()
   const [estereogramas, setEstereogramas] = React.useState<Estereograma[]>([])
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
-  const goToDetail = (img: string): void => {
+  const goToDetail = (img: string, nome: string): void => {
     navigation.navigate('Detail', {
-      img: img
+      img: img,
+      nome: nome
     })
   }
   React.useEffect(() => {
@@ -42,7 +43,7 @@ const Home = (): React.ReactElement => {
                   <View style={styles.icon}>
                     <Text>Detalhes</Text>
                     <Icon
-                      onPress={() => goToDetail(e.img)}
+                      onPress={() => goToDetail(e.img, e.nome)}
                       name="arrow-right"
                       size={22}
                       color="blue"

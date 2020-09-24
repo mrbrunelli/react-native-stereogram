@@ -11,7 +11,6 @@ interface Params {
 const Detail = (): React.ReactElement => {
   const route = useRoute()
   const { img, nome } = route.params as Params
-  const [image, setImage] = React.useState<string>()
   const [isLoading, setIsLoading] = React.useState<boolean>(true)
   React.useEffect(() => {
     setTimeout(() => setIsLoading(false), 1000)

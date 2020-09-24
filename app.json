@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "estereograma",
-    "slug": "estereograma",
+    "name": "stereogram",
+    "slug": "stereogram",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Trabalho de Programação para Dispositivos Móveis",
+    "githubUrl": "https://github.com/mrbrunelli/react-native-stereogram"
   }
 }

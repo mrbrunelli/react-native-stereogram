@@ -23,6 +23,9 @@
       "favicon": "./assets/favicon.png"
     },
     "description": "Trabalho de Programação para Dispositivos Móveis",
-    "githubUrl": "https://github.com/mrbrunelli/react-native-stereogram"
+    "githubUrl": "https://github.com/mrbrunelli/react-native-stereogram",
+    "android": {
+      "package": "com.mrbrunelli.stereogram"
+    }
   }
 }

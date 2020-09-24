@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ActivityIndicator, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ActivityIndicator, ScrollView, RefreshControl } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
 import { useNavigation } from '@react-navigation/native'
 import axios from 'axios'
@@ -14,6 +14,10 @@ const Home = (): React.ReactElement => {
   const navigation = useNavigation()
   const [estereogramas, setEstereogramas] = React.useState<Estereograma[]>([])
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const onRefresh = React.useCallback(() => {
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 1000)
+  }, [])
   const goToDetail = (img: string, nome: string): void => {
     navigation.navigate('Detail', {
       img: img,
@@ -32,7 +36,9 @@ const Home = (): React.ReactElement => {
       {isLoading
         ? <ActivityIndicator color="blue" size="large"/>
         : (
-          <ScrollView>
+          <ScrollView
+            refreshControl={<RefreshControl refreshing={isLoading} onRefresh={onRefresh} />}
+          >
             <View style={styles.box}>
               {estereogramas.map(e => (
                 <View
